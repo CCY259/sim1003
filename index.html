@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SIM1003 Calculus II</title>
+  <style type="text/css">body{
+    margin:40px auto;
+    max-width:800px;
+    line-height:1.7;
+    font-family: Verdana,Arial,sans-serif;
+    font-size:16px;
+    color:#313030;
+    padding:0 10px}
+    h1,h2,h3{line-height:1.2}
+    a {
+      color:#212121;
+    }
+    .ui-tabs .ui-tabs-panel[aria-hidden="true"] {
+    display: block !important;
+    position: absolute !important;
+    left: -9999px !important;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+  <script>
+function getAnchor(url)
+{
+    var index = url.lastIndexOf('#');
+    if (index != -1)
+        return url.substring(index);
+}
+ </script>
+
+<script>
+(function ($) {
+  var CANONICAL = "";
+
+  function initializeTabs(selector, hashPrefix, defaultActive) {
+    var $tabs = $(selector);
+    if (!$tabs.length) return; // Exit if element doesn't exist
+
+    var DEFAULT_ACTIVE = defaultActive || 0;
+    var tabCount = $tabs.find("> ul > li").length;
+
+    function parseIndexFromHash() {
+      var regex = new RegExp("^#" + hashPrefix + "-(\\d+)$");
+      var m = (window.location.hash || "").match(regex);
+      return m ? parseInt(m[1], 10) : null;
+    }
+
+    function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
+
+    var fromHash = parseIndexFromHash();
+    var initial = (fromHash != null) ? clamp(fromHash, 0, tabCount - 1) : DEFAULT_ACTIVE;
+
+    $tabs.tabs({ active: initial });
+
+    if (history && history.replaceState) {
+      if (!window.location.hash || window.location.hash.indexOf(hashPrefix) !== -1) {
+        history.replaceState(null, "", CANONICAL + "#" + hashPrefix + initial);
+      }
+    }
+
+    // Update URL when a tab is clicked
+    $tabs.on("tabsactivate", function (event, ui) {
+      var idx = $tabs.tabs("option", "active");
+      var newHash = "#" + hashPrefix + idx;
+      if (history && history.replaceState) {
+        history.replaceState(null, "", CANONICAL + newHash);
+      } else {
+        window.location.hash = newHash;
+      }
+    });
+
+    // Sync tabs when the browser "Back/Forward" buttons are pressed
+    $(window).on("hashchange", function () {
+      var idx = parseIndexFromHash();
+      if (idx == null) return;
+      var clamped = clamp(idx, 0, tabCount - 1);
+      if ($tabs.tabs("option", "active") !== clamped) {
+        $tabs.tabs("option", "active", clamped);
+      }
+    });
+  }
+
+  $(function () {
+    initializeTabs("#discussionMaterials", "m", 0);
+    initializeTabs("#weeklyIntegral", "i", 0);
+  });
+
+})(jQuery);
+
+$(document).ready(function() {
+  $("#accordion").accordion({
+    collapsible: true, // Allows all sections to be closed
+    active: false,      // Starts with all sections closed (requires collapsible: true)
+    heightStyle: "content" // Adjusts height based on content size
+  });
+});
+</script>
+
+ </head>
+
+
+ <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+
+ <body>
+
+ <h1>SIM1003 Calculus II</h1>
+ <h2>Tutorials and Other Resources</h2>
+
+ <p> Tutor: Mr. Chua</p>
+
+ <p>Email: 17202771[at]siswa.um.edu.my</p>
+
+ <p>Venue: BTM 3, Institute of Mathematical Sciences</p>
+<p>
+    Group 1: Monday 9.00-9.50am<br>
+    Group 2: Monday 10.00-10.50am<br>
+    Group 3: Monday 11.00-11.50am<br>
+    Group 10: Thursday 10.00-10.50am<br>
+    Group 11: Thursday 12.00-12.50pm<br>
+    Group 12: Thursday 1.00-1.50pm
+ </p>
+ 
+
+ <hr>
+
+<h3>Tutorial Sheets</h3>
+ <ul>
+ <li>
+    <a href="./pdf/Tutorial_1_25_26_S2.pdf" TARGET='_blank'>Tutorial Sheet 1</a>
+</li>
+</ul>
+
+<hr>
+
+<h3>Tutorial Discussion Materials</h3>
+<p>The materials discussed in class will be uploaded here for your reference.</p>
+<div id='discussionMaterials'>
+  <ul>
+    <li><a href='#group_1'> Group 1</a></li>
+    <li><a href='#group_2'>Group 2</a></li>
+    <li><a href='#group_3'>Group 3</a></li>
+    <li><a href='#group_10'>Group 10</a></li>
+    <li><a href='#group_11'>Group 11</a></li>
+    <li><a href='#group_12'>Group 12</a></li>
+  </ul>
+
+  <div id="group_1">
+    <h3>Group 1</h3>
+    <ul>
+      <li><a HREF='./pdf/w4g1' TARGET='_BLANK'>Week 4</a></li> 
+      <li><a HREF='./pdf/w5g1' TARGET='_BLANK'>Week 5</a></li>
+      <li><a HREF='./pdf/w6g1' TARGET='_BLANK'>Week 6</a></li>
+      <li><a HREF='./pdf/w7g1' TARGET='_BLANK'>Week 7</a></li>
+      <li><a HREF='./pdf/w8g1' TARGET='_BLANK'>Week 8</a></li>
+      <li><a HREF='./pdf/w9g1' TARGET='_BLANK'>Week 9</a></li>
+      <li><a HREF='./pdf/w10g1' TARGET='_BLANK'>Week 10</a></li>
+      <li><a HREF='./pdf/w11g1' TARGET='_BLANK'>Week 11</a></li>
+      <li><a HREF='./pdf/w12g1' TARGET='_BLANK'>Week 12</a></li>
+      <li><a HREF='./pdf/w13g1' TARGET='_BLANK'>Week 13</a></li>
+      <li><a HREF='./pdf/w14g1' TARGET='_BLANK'>Week 14</a></li>
+    </ul>
+  </div>
+
+  <div id="group_2">
+    <h3>Group 2</h3>
+    <ul>
+      <li><a HREF='./pdf/w4g2' TARGET='_BLANK'>Week 4</a></li>
+      <li><a HREF='./pdf/w5g2' TARGET='_BLANK'>Week 5</a></li>
+      <li><a HREF='./pdf/w6g2' TARGET='_BLANK'>Week 6</a></li>
+      <li><a HREF='./pdf/w7g2' TARGET='_BLANK'>Week 7</a></li>
+      <li><a HREF='./pdf/w8g2' TARGET='_BLANK'>Week 8</a></li>
+      <li><a HREF='./pdf/w9g2' TARGET='_BLANK'>Week 9</a></li>
+      <li><a HREF='./pdf/w10g2' TARGET='_BLANK'>Week 10</a></li>
+      <li><a HREF='./pdf/w11g2' TARGET='_BLANK'>Week 11</a></li>
+      <li><a HREF='./pdf/w12g2' TARGET='_BLANK'>Week 12</a></li>
+      <li><a HREF='./pdf/w13g2' TARGET='_BLANK'>Week 13</a></li>
+      <li><a HREF='./pdf/w14g2' TARGET='_BLANK'>Week 14</a></li>
+    </ul>
+  </div>
+
+  <div id="group_3">
+    <h3>Group 3</h3>
+    <ul>
+      <li><a HREF='./pdf/w4g3' TARGET='_BLANK'>Week 4</a></li>
+      <li><a HREF='./pdf/w5g3' TARGET='_BLANK'>Week 5</a></li>
+      <li><a HREF='./pdf/w6g3' TARGET='_BLANK'>Week 6</a></li>
+      <li><a HREF='./pdf/w7g3' TARGET='_BLANK'>Week 7</a></li>
+      <li><a HREF='./pdf/w8g3' TARGET='_BLANK'>Week 8</a></li>
+      <li><a HREF='./pdf/w9g3' TARGET='_BLANK'>Week 9</a></li>
+      <li><a HREF='./pdf/w10g3' TARGET='_BLANK'>Week 10</a></li>
+      <li><a HREF='./pdf/w11g3' TARGET='_BLANK'>Week 11</a></li>
+      <li><a HREF='./pdf/w12g3' TARGET='_BLANK'>Week 12</a></li>
+      <li><a HREF='./pdf/w13g3' TARGET='_BLANK'>Week 13</a></li>
+      <li><a HREF='./pdf/w14g3' TARGET='_BLANK'>Week 14</a></li>
+    </ul>
+  </div>
+
+  <div id="group_10">
+    <h3>Group 10</h3>
+    <ul>
+      <li><a HREF='./pdf/w4g10' TARGET='_BLANK'>Week 4</a></li>
+      <li><a HREF='./pdf/w5g10' TARGET='_BLANK'>Week 5</a></li>
+      <li><a HREF='./pdf/w6g10' TARGET='_BLANK'>Week 6</a></li>
+      <li><a HREF='./pdf/w7g10' TARGET='_BLANK'>Week 7</a></li>
+      <li><a HREF='./pdf/w8g10' TARGET='_BLANK'>Week 8</a></li>
+      <li><a HREF='./pdf/w9g10' TARGET='_BLANK'>Week 9</a></li>
+      <li><a HREF='./pdf/w10g10' TARGET='_BLANK'>Week 10</a></li>
+      <li><a HREF='./pdf/w11g10' TARGET='_BLANK'>Week 11</a></li>
+      <li><a HREF='./pdf/w12g10' TARGET='_BLANK'>Week 12</a></li>
+      <li><a HREF='./pdf/w13g10' TARGET='_BLANK'>Week 13</a></li>
+      <li><a HREF='./pdf/w14g10' TARGET='_BLANK'>Week 14</a></li>
+    </ul>
+  </div>
+
+  <div id="group_11">
+    <h3>Group 11</h3>
+    <ul>
+      <li><a HREF='./pdf/w4g11' TARGET='_BLANK'>Week 4</a></li>
+      <li><a HREF='./pdf/w5g11' TARGET='_BLANK'>Week 5</a></li>
+      <li><a HREF='./pdf/w6g11' TARGET='_BLANK'>Week 6</a></li>
+      <li><a HREF='./pdf/w7g11' TARGET='_BLANK'>Week 7</a></li>
+      <li><a HREF='./pdf/w8g11' TARGET='_BLANK'>Week 8</a></li>
+      <li><a HREF='./pdf/w9g11' TARGET='_BLANK'>Week 9</a></li>
+      <li><a HREF='./pdf/w10g11' TARGET='_BLANK'>Week 10</a></li>
+      <li><a HREF='./pdf/w11g11' TARGET='_BLANK'>Week 11</a></li>
+      <li><a HREF='./pdf/w12g11' TARGET='_BLANK'>Week 12</a></li>
+      <li><a HREF='./pdf/w13g11' TARGET='_BLANK'>Week 13</a></li>
+      <li><a HREF='./pdf/w14g11' TARGET='_BLANK'>Week 14</a></li>
+    </ul>
+  </div>
+
+  <div id="group_12">
+    <h3>Group 12</h3>
+    <ul>
+      <li><a HREF='./pdf/w4g12' TARGET='_BLANK'>Week 4</a></li>
+      <li><a HREF='./pdf/w5g12' TARGET='_BLANK'>Week 5</a></li>
+      <li><a HREF='./pdf/w6g12' TARGET='_BLANK'>Week 6</a></li>
+      <li><a HREF='./pdf/w7g12' TARGET='_BLANK'>Week 7</a></li>
+      <li><a HREF='./pdf/w8g12' TARGET='_BLANK'>Week 8</a></li>
+      <li><a HREF='./pdf/w9g12' TARGET='_BLANK'>Week 9</a></li>
+      <li><a HREF='./pdf/w10g12' TARGET='_BLANK'>Week 10</a></li>
+      <li><a HREF='./pdf/w11g12' TARGET='_BLANK'>Week 11</a></li>
+      <li><a HREF='./pdf/w12g12' TARGET='_BLANK'>Week 12</a></li>
+      <li><a HREF='./pdf/w13g12' TARGET='_BLANK'>Week 13</a></li>
+      <li><a HREF='./pdf/w14g12' TARGET='_BLANK'>Week 14</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<hr> 
+
+<h3>Weekly Integral</h3>
+<p>Although these are not compulsory, I will be uploading a new integral every week. Give them a try for fun!</p>
+<div id='weeklyIntegral'>
+<ul>
+<li><a href='#week_4_int'>Week 4</a></li>
+<li><a href='#week_5_int'>Week 5</a></li>
+<li><a href='#week_6_int'>Week 6</a></li>
+<!--<li><a href='#week_7_int'>Week 7</a></li>
+<li><a href='#week_8_int'>Week 8</a></li>
+<li><a href='#week_9_int'>Week 9</a></li>
+<li><a href='#week_10_int'>Week 10</a></li>
+<li><a href='#week_11_int'>Week 11</a></li>
+<li><a href='#week_12_int'>Week 12</a></li>
+<li><a href='#week_13_int'>Week 13</a></li>
+<li><a href='#week_14_int'>Week 14</a></li> -->
+</ul>
+
+<div id="week_4_int">
+<h3>Week 4</h3>
+$$ \int \frac{x^3}{x^3+1}\, dx$$
+</div>
+
+
+<div id="week_5_int">
+<h3>Week 5</h3>
+<p> Stay Tuned! </p>
+</div>
+
+<div id="week_6_int">
+<h3>Week 6</h3>
+<p> Stay Tuned! </p>
+</div>
+
+</div>
+
+<hr>
+
+
+
+
+ <p>Last update: 2026/03/21</p> 
+
+ </body>
+
+</html>
