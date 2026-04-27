@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<head> 
+  <!-- Setting for mobile site -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- LaTeX support -->
+  <script>
+    window.MathJax = {
+      tex: {
+        // Enable $...$ for inline math (standard LaTeX uses \(...\))
+        inlineMath: [['$', '$'], ['\\(', '\\)']] 
+      }
+    };
+  </script>
+  
+  <!-- NEW: Load MathJax from CDN (CommonHTML output) -->
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+  /* Desktop style */
+  body {
+    font-size: 1.25em; 
+    margin: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-family: sans-serif;
+  }
+  /* font-family: sans-serif; */ 
+  /* Boxes for Choices */
+  .choice-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+  }
+  .choice-container:hover {
+    background-color: #f0f0f0;
+  }
+  .choice-box {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 33px; /* Vertical center */
+    text-align: center;
+    border: 2px solid black;
+    font-weight: normal;
+    margin-right: 15px;
+    background-color: white;
+    flex-shrink: 0;
+    border-radius: 4px;
+  }
+  .choice-text {
+    font-size: 1em;
+  }
+
+  /* Disable (can adjust opacity) */
+  .disabled {
+    pointer-events: none;
+    opacity: 1.0;
+  }
+
+  /* Correct answer (make it green) */
+  .correct-choice .choice-box {
+    background-color: #388e3c;
+    color: white;
+    border-color: #388e3c;
+  }
+  
+  /* Correct answer (make it red) */
+  .wrong-choice .choice-box {
+    background-color: #d32f2f;
+    color: white;
+    border-color: #d32f2f;
+  }
+
+  p {
+    text-indent: 0;
+    margin-bottom: 15px;
+  }
+
+  /* Mobile style */
+  /* Only works for those max-width 700px */
+  @media screen and (max-width: 700px) {
+    body {
+      /* Change margin, padding and font size in body */
+      margin: 20px;
+      padding-left: 0;
+      padding-right: 0;
+      font-size: 1.2em; 
+    }
+
+    /* Make the boxes bigger so they are easier to tapped */
+    .choice-box {
+      width: 40px;
+      height: 40px;
+      line-height: 38px;
+    }
+  }
+  </style>
+
+</head>
+
+<body>
+  <h1>Find the limit of the given sequence</h1>
+  
+  <!-- Set up for quiz contents -->
+  <div id="quiz-container"></div>
+  
+  <div id="score-summary"></div>
+
+  <!-- Reset Progress Button -->
+  <button style="margin-top: 25px; margin-bottom: 25px; padding: 5px 10px; font-size: 0.5em; cursor: pointer;" 
+          onclick="if(confirm('Are you sure you want to clear all answers?')){ localStorage.clear(); location.reload(); }">
+    🔄 Reset Progress
+  </button>
+
+  <!-- Load quiz.js -->
+  <script src="0427_quiz.js"></script>
+
+</body>
+</html>
+
+<!-- Disable some keys to prevent cheating -->
+<script>
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'Shift' || e.key === 'I' || e.key === "F12")) {
+      e.preventDefault();
+    }
+  });
+</script>
