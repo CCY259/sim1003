@@ -170,10 +170,10 @@ function checkAnswer(index, selectedChoice, isRestoring = false) {
     let resultComment;
     const percentage = correctCount / questions.length;
     
-    if (percentage === 1.0) resultComment = 'Genius Level! I love you so matcha.';
-    else if (percentage >= 0.9) resultComment = 'So close! Give you a chocolatte.';
-    else if (percentage >= 0.7) resultComment = 'Good Job. Give you a cookie.';
-    else if (percentage >= 0.5) resultComment = 'Masih memuaskan. Kasih satu nasi lemak.';
+    if (percentage === 1.0) resultComment = 'Congratulation!';
+    else if (percentage >= 0.9) resultComment = 'So close!';
+    else if (percentage >= 0.7) resultComment = 'Good Job.';
+    else if (percentage >= 0.5) resultComment = 'Masih memuaskan.';
     else resultComment = 'Hello what happen? Habis lah!';
 
     scoreBox.innerHTML = `<div style="font-size: 1.3em; font-weight: bold; margin-top: 50px; margin-bottom: 50px; padding: 20px; border: 2px solid #333; text-align:center;">
