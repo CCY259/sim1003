@@ -223,7 +223,8 @@ $(document).ready(function() {
         Exercise 9.8E Q26
       <li>Week 11 </li>
       See the section <a href="#week11-online">Online Classes (Week 11)</a>
-      <li><a HREF='./pdf/w12g2.pdf' TARGET='_BLANK'>Week 12</a></li>
+      <li>Week 12 </li>
+      Probably will have a replacement
       <li><a HREF='./pdf/w13g2.pdf' TARGET='_BLANK'>Week 13</a></li>
       <li><a HREF='./pdf/w14g2.pdf' TARGET='_BLANK'>Week 14</a></li>
     </ul>
@@ -265,7 +266,8 @@ $(document).ready(function() {
       Training in-your-head calculation skill today!
       <li>Week 11 </li>
       See the section <a href="#week11-online">Online Classes (Week 11)</a>
-      <li><a HREF='./pdf/w12g3.pdf' TARGET='_BLANK'>Week 12</a></li>
+      <li>Week 12 </li>
+      Probably will have a replacement
       <li><a HREF='./pdf/w13g3.pdf' TARGET='_BLANK'>Week 13</a></li>
       <li><a HREF='./pdf/w14g3.pdf' TARGET='_BLANK'>Week 14</a></li>
     </ul>
@@ -308,6 +310,9 @@ $(document).ready(function() {
       <li>Week 11 </li>
       See the section <a href="#week11-online">Online Classes (Week 11)</a>
       <li><a HREF='./pdf/w12g8.pdf' TARGET='_BLANK'>Week 12</a></li>
+      Tutorial 6 <br>
+      Exercise 9.7 Q13, Q15 <br>
+      See <a HREF='./pdf/practice-draft-sol.pdf' TARGET='_BLANK'>Practice on Drafting Solutions</a> in the section <a href="#resources">Other Resources</a>
       <li><a HREF='./pdf/w13g8.pdf' TARGET='_BLANK'>Week 13</a></li>
       <li><a HREF='./pdf/w14g8.pdf' TARGET='_BLANK'>Week 14</a></li>
     </ul>
@@ -351,6 +356,9 @@ $(document).ready(function() {
       <li>Week 11 </li>
       See the section <a href="#week11-online">Online Classes (Week 11)</a>
       <li><a HREF='./pdf/w12g10.pdf' TARGET='_BLANK'>Week 12</a></li>
+      Tutorial 6 <br>
+      Exercise 9.8E Q36 <br>
+      See <a HREF='./pdf/practice-draft-sol.pdf' TARGET='_BLANK'>Practice on Drafting Solutions</a> in the section <a href="#resources">Other Resources</a>
       <li><a HREF='./pdf/w13g10.pdf' TARGET='_BLANK'>Week 13</a></li>
       <li><a HREF='./pdf/w14g10.pdf' TARGET='_BLANK'>Week 14</a></li>
     </ul>
@@ -392,7 +400,8 @@ $(document).ready(function() {
       Exercise 9.8E Q29
       <li>Week 11 </li>
       See the section <a href="#week11-online">Online Classes (Week 11)</a>
-      <li><a HREF='./pdf/w12g11.pdf' TARGET='_BLANK'>Week 12</a></li>
+      <li>Week 12</li>
+      See <a HREF='./pdf/practice-draft-sol.pdf' TARGET='_BLANK'>Practice on Drafting Solutions</a> in the section <a href="#resources">Other Resources</a>
       <li><a HREF='./pdf/w13g11.pdf' TARGET='_BLANK'>Week 13</a></li>
       <li><a HREF='./pdf/w14g11.pdf' TARGET='_BLANK'>Week 14</a></li>
     </ul>
@@ -434,7 +443,8 @@ $(document).ready(function() {
       Exercise 9.6 Q25
       <li>Week 11 </li>
       See the section <a href="#week11-online">Online Classes (Week 11)</a>
-      <li><a HREF='./pdf/w12g12.pdf' TARGET='_BLANK'>Week 12</a></li>
+      <li>Week 12</li>
+      See <a HREF='./pdf/practice-draft-sol.pdf' TARGET='_BLANK'>Practice on Drafting Solutions</a> in the section <a href="#resources">Other Resources</a>
       <li><a HREF='./pdf/w13g12.pdf' TARGET='_BLANK'>Week 13</a></li>
       <li><a HREF='./pdf/w14g12.pdf' TARGET='_BLANK'>Week 14</a></li>
     </ul>
@@ -471,6 +481,8 @@ One more thing to remember:
 <li>If we see "bounded by $x$-axis", set $y=0$ to find the value of $t$.</li></ul>
       <li><a HREF='./pdf/week-9-quiz.pdf' TARGET='_BLANK'>Quiz prepared for Week 9</a></li>
       <li><a HREF='./pdf/practice-draft-sol.pdf' TARGET='_BLANK'>Practice on Drafting Solutions</a></li>
+      <li><a HREF='./pdf/tut-6-ex-9-7.pdf' TARGET='_BLANK'>Some Handwritten Solutions for Tutorial 6</a></li>
+      Exercise 9.7 Q11, Q31, Q34, Q40, Q42
 
 
 </ul>
@@ -490,6 +502,19 @@ See <a HREF='./pdf/Remark_on_Tut 3_Ex 8.5_Q49&50.pdf' TARGET='_BLANK'>Remark on 
       we have shown $\sum_{n=1}^{\infty}a_n$ is absolutely convergent, since we are considering rearrangement of series. Note that
        a series that converges but not absolutely (converges conditionally) is less robust. A rearrangement 
        might give a series that converges to a different value, or even diverges.</p>
+
+<h4>Tutorial 5 Exercise 9.4 Q30</h4>
+<p>In Group 3, I proposed a way to find a candidate for the Direct Comparison Test, where I suggest the inequality $\ln n\leq n^{1/5}$. 
+  The candidate is just $\frac{1}{n^{3/2 - 2/5}} = \frac{1}{n^{11/10}}$ (see the note in Group 3 Week 8). However, I realized that it is difficult to find an exact number $N$ such that $\ln n \leq n^{1/5}$ for all $n \geq N$. 
+There are two ways to fix this issue.</p>
+<ul><li>Use the <strong>Limit Comparison Test</strong> for the case where the limit is $0$. 
+We can compare $\frac{(\ln n)^2}{n^{3/2}}$ with $\frac{1}{n^{11/10}}$. The limit can be found by L'Hôpital's rule.
+</li>
+<li>Instead of finding an exact value for $N$, we can simply <strong>prove the existence</strong> of such $N$. 
+  By L'Hôpital's rule, $\lim_{n\rightarrow \infty} \frac{\ln n}{n^{1/5}} = 0$. 
+  By the definition of a limit of a sequence, there exists some integer $N > 0$ such that 
+  $\ln n < n^{1/5}$ for all $n \geq N$.</li>
+</ul>
 
 
 <hr>
@@ -530,8 +555,8 @@ Not every slides are used during the sessions.
 <li><a href='#week_10_int'>Week 10</a></li>
 <li><a href='#week_11_int'>Week 11</a></li>
 <li><a href='#week_12_int'>Week 12</a></li>
-<!--<li><a href='#week_13_int'>Week 13</a></li>
-<li><a href='#week_14_int'>Week 14</a></li> -->
+<li><a href='#week_13_int'>Week 13</a></li>
+<!--<li><a href='#week_14_int'>Week 14</a></li> -->
 </ul>
 
 <div id="week_3_int">
@@ -588,6 +613,13 @@ where $n$ is a positive integer.
 $$\int_{-\pi}^\pi \max\{\sin x, \cos x\}\,dx$$
 </div>
 
+<div id="week_13_int">
+<h3>Week 13</h3>
+Converge or diverge: 
+$$\int_{2026}^{\infty} \sqrt{\sqrt{x+2025}-\sqrt{x}} - \sqrt{\sqrt{x}-\sqrt{x-2026}}\, dx$$
+Hint: Taylor series
+</div>
+
 </div>
 
 
@@ -595,7 +627,7 @@ $$\int_{-\pi}^\pi \max\{\sin x, \cos x\}\,dx$$
 
 
 
- <footer class = "bottom-footer">  <p>Last update: 2026/06/03</p>  </footer>
+ <footer class = "bottom-footer">  <p>Last update: 2026/06/05</p>  </footer>
  
 
 </html>
